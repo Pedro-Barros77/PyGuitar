@@ -1,0 +1,156 @@
+{
+  "file_name": "Blue_Orchid-The_White_Stripes.mpeg",
+  "bpm": 151,
+  "title": "Blue Orchid",
+  "artist": "The White Stripes",
+  "key_map": [
+    {
+      "time": 5839,
+      "key": 1,
+      "duration": 0
+    },
+    {
+      "time": 5839,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 6874,
+      "key": 1,
+      "duration": 1
+    },
+    {
+      "time": 7107,
+      "key": 2,
+      "duration": 2
+    },
+    {
+      "time": 7307,
+      "key": 1,
+      "duration": 0
+    },
+    {
+      "time": 7307,
+      "key": 3,
+      "duration": 0
+    },
+    {
+      "time": 7708,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 7708,
+      "key": 0,
+      "duration": 0
+    },
+    {
+      "time": 9142,
+      "key": 1,
+      "duration": 0
+    },
+    {
+      "time": 9142,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 10177,
+      "key": 1,
+      "duration": 1
+    },
+    {
+      "time": 10410,
+      "key": 2,
+      "duration": 2
+    },
+    {
+      "time": 10610,
+      "key": 1,
+      "duration": 0
+    },
+    {
+      "time": 10610,
+      "key": 3,
+      "duration": 0
+    },
+    {
+      "time": 10978,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 10978,
+      "key": 3,
+      "duration": 0
+    },
+    {
+      "time": 11378,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 11378,
+      "key": 4,
+      "duration": 0
+    },
+    {
+      "time": 11778,
+      "key": 3,
+      "duration": 0
+    },
+    {
+      "time": 12179,
+      "key": 4,
+      "duration": 0
+    },
+
+
+
+
+
+
+
+
+    {
+      "time": 12379,
+      "key": 1,
+      "duration": 0
+    },
+    {
+      "time": 12379,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 13414,
+      "key": 1,
+      "duration": 1
+    },
+    {
+      "time": 13647,
+      "key": 2,
+      "duration": 2
+    },
+    {
+      "time": 13847,
+      "key": 1,
+      "duration": 0
+    },
+    {
+      "time": 13847,
+      "key": 3,
+      "duration": 0
+    },
+    {
+      "time": 14248,
+      "key": 2,
+      "duration": 0
+    },
+    {
+      "time": 14248,
+      "key": 0,
+      "duration": 0
+    }
+  ]
+}
