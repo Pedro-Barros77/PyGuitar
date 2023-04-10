@@ -42,7 +42,7 @@ class Drawer:
         # the width of the strings (vertical lines) from the thinnest to the thickest
         self.string_widths = []
         # the distance of the buttons to the top of the screen
-        self.buttons_top = 0
+        self.buttons_top = self.table_offset[1] + self.table_height - self.btn_diameter - ((self.table_width/5)//2)
         # the number of pixels to travel for each song millisecond
         self.px_per_ms = 0
         # the offset (in milliseconds) a key should appear before it's time to be hit
@@ -81,7 +81,6 @@ class Drawer:
         self.key_show_offset = 0
 
     def draw_table(self):
-        
         def draw_plane():
             table = colors.horizontal_gradient(self.table_size, colors.add_evenly(colors.DARK_BROWN, -100), colors.DARK_BROWN)
             self.game.screen.blit(table, self.table_offset)
@@ -94,7 +93,7 @@ class Drawer:
                 _fret_shadow = pygame.Surface((self.table_width+_fret_overflow, self.FRET_WIDTH))
                 _fret = pygame.Surface((self.table_width+_fret_overflow, self.FRET_WIDTH-2))
                 _fret_shadow.fill(colors.add_evenly(colors.GRAY, -100))
-                _fret.fill(colors.GRAY)
+                 
                 
                 _fret_offset = (self.table_offset[0]-(_fret_overflow//2), self.table_offset[1] + _top)
                 self.game.screen.blit(_fret_shadow, _fret_offset)
@@ -120,29 +119,9 @@ class Drawer:
                 if i > 0:
                     _shadow_width += 2
         
-        def draw_buttons():
-            _btn_margin = self.table_width/5
-            _left = _btn_margin //2
-            
-            def get_pressed_color(i):
-                if self.game.btn_keys[i] in self.game.pressed_keys:
-                    return colors.add_evenly(self.BTN_COLORS[i], 400)
-                return colors.CARBON
-            
-            for i in range(0,5):
-                _x_offset = self.table_offset[0] + _left + (self.string_widths[i]//2)
-                _y_offset = self.table_offset[1] + self.table_height - self.btn_diameter - (_btn_margin//2)
-                self.buttons_top = _y_offset
-                _btn_colored = pygame.draw.circle(self.game.screen, self.BTN_COLORS[i], (_x_offset, _y_offset), self.btn_diameter)
-                _btn_silver = pygame.draw.circle(self.game.screen, colors.CARBON if self.game.btn_keys[i] in self.game.pressed_keys else colors.SILVER, (_x_offset, _y_offset), self.btn_diameter - (self.btn_diameter/5))
-                _btn_hole = pygame.draw.circle(self.game.screen, get_pressed_color(i), (_x_offset, _y_offset), self.btn_diameter - (self.btn_diameter/2.5))
-                
-                _left += _btn_margin
-                
         draw_plane()
         draw_frets()
         draw_strings()
-        draw_buttons()
         
         # change literal value by BPM calc
         _fret_offset = self.guitar_fret_offset + (self.game.tick_speed/48.3)
@@ -151,6 +130,26 @@ class Drawer:
                     
             
         self.guitar_fret_offset = _fret_offset
+        
+    
+    def draw_buttons(self):
+        _btn_margin = self.table_width/5
+        _left = _btn_margin //2
+            
+        def get_pressed_color(i):
+            if self.game.btn_keys[i] in self.game.pressed_keys:
+                return colors.add_evenly(self.BTN_COLORS[i], 400)
+            return colors.CARBON
+        
+        for i in range(0,5):
+            _x_offset = self.table_offset[0] + _left + (self.string_widths[i]//2)
+            _y_offset = self.table_offset[1] + self.table_height - self.btn_diameter - (_btn_margin//2)
+            _btn_colored = pygame.draw.circle(self.game.screen, self.BTN_COLORS[i], (_x_offset, _y_offset), self.btn_diameter)
+            _btn_silver = pygame.draw.circle(self.game.screen, colors.CARBON if self.game.btn_keys[i] in self.game.pressed_keys else colors.SILVER, (_x_offset, _y_offset), self.btn_diameter - (self.btn_diameter/5))
+            _btn_hole = pygame.draw.circle(self.game.screen, get_pressed_color(i), (_x_offset, _y_offset), self.btn_diameter - (self.btn_diameter/2.5))
+            
+            _left += _btn_margin
+        
         
         
     def draw_keymap(self, song):
